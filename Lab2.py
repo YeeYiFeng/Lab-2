@@ -1,3 +1,6 @@
+import statistics
+
+
 def display_main_menu():
     print("display_main_menu")
 
@@ -25,6 +28,18 @@ def calc_min_max_temperature(x):
     return minmax
 
 
+def calc_median_temperature(x):
+    x.sort()
+    print(x)
+    middle = len(x) / 2
+    print(middle)
+    if len(x) % 2 != 0:
+        mediann = x[int(middle)]
+    elif len(x) % 2 == 0:
+        mediann = (x[int(middle)] + x[int(middle) - 1]) / 2
+    print(mediann)
+
+
 def main():
     print("ET0735 (DevOps for AIoT) - Lab 2 - Introduction to Python")
     display_main_menu()
@@ -34,6 +49,7 @@ def main():
     minmax = calc_min_max_temperature(num_list)
     print(avg)
     print(minmax)
+    calc_median_temperature(num_list)
 
 
 if __name__ == "__main__":
